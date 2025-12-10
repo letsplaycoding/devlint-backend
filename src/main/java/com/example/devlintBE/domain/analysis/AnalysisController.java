@@ -40,4 +40,16 @@ public class AnalysisController {
         AnalysisRequestResponseDto responseDto = analysisService.getAnalysisRequest(id);
         return ResponseEntity.ok(responseDto);
     }
+
+    // -------------------------------
+    // 3) 분석 실행
+    // POST /api/analysis/requests/{id}/run
+    // -------------------------------
+    @PostMapping("/requests/{id}/run")
+    public ResponseEntity<AnalysisRequestResponseDto> runAnalysis(
+            @PathVariable Long id
+    ) {
+        AnalysisRequestResponseDto responseDto = analysisService.runAnalysis(id);
+        return ResponseEntity.ok(responseDto);
+    }
 }
